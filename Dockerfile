@@ -12,6 +12,7 @@ ADD ./r-install/lib /lib/
 
 RUN mkdir -p /usr/bin \
     && ln -s $R_HOME"bin/exec/R" /usr/bin/R \
-    && ln -s $R_HOME"bin/Rscript" /usr/bin/Rscript
+    && ln -s $R_HOME"bin/Rscript" /usr/bin/Rscript \
+    && ln -s /bin/which /usr/bin/which
 
 CMD R

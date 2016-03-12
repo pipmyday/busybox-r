@@ -11,7 +11,7 @@ echo "looking for binaries built in $R_BUILD_DIR"
 
 rm -r $SHARED_LIBS_DEST_DIR 2> /dev/null
 
-for x in /lib/x86_64-linux-gnu/libm.so.6 /lib/x86_64-linux-gnu/libreadline.so.6 /lib/x86_64-linux-gnu/libpcre.so.3 /lib/x86_64-linux-gnu/liblzma.so.5 /lib/x86_64-linux-gnu/libbz2.so.1.0 /lib/x86_64-linux-gnu/libz.so.1 /lib/x86_64-linux-gnu/librt.so.1 /lib/x86_64-linux-gnu/libdl.so.2 /usr/lib/x86_64-linux-gnu/libgomp.so.1 /lib/x86_64-linux-gnu/libpthread.so.0 /lib/x86_64-linux-gnu/libc.so.6 /lib64/ld-linux-x86-64.so.2 /lib/x86_64-linux-gnu/libtinfo.so.5 /usr/lib/x86_64-linux-gnu/libgfortran.so.3 /usr/lib/x86_64-linux-gnu/libquadmath.so.0 /lib/x86_64-linux-gnu/libgcc_s.so.1;
+for x in /lib/x86_64-linux-gnu/libm.so.6 /lib/x86_64-linux-gnu/libreadline.so.6 /lib/x86_64-linux-gnu/libpcre.so.3 /lib/x86_64-linux-gnu/liblzma.so.5 /lib/x86_64-linux-gnu/libbz2.so.1.0 /lib/x86_64-linux-gnu/libz.so.1 /lib/x86_64-linux-gnu/librt.so.1 /lib/x86_64-linux-gnu/libdl.so.2 /usr/lib/x86_64-linux-gnu/libgomp.so.1 /lib/x86_64-linux-gnu/libpthread.so.0 /lib/x86_64-linux-gnu/libc.so.6 /lib64/ld-linux-x86-64.so.2 /lib/x86_64-linux-gnu/libtinfo.so.5 /usr/lib/x86_64-linux-gnu/libgfortran.so.3 /usr/lib/x86_64-linux-gnu/libquadmath.so.0 /lib/x86_64-linux-gnu/libgcc_s.so.1 /usr/lib/libR.so /usr/lib/libblas.so.3;
 do
 
     destdir="$SHARED_LIBS_DEST_DIR$(dirname $x)/"
@@ -40,4 +40,4 @@ done
 
 echo "copied "$(find $R_DEST_DIR -type f|wc -l)" files."
 
-docker build -t "pipmyday/busybox-r:latest" ./
+docker build -t "pipmyday/busybox-r:$R_VERSION" ./
